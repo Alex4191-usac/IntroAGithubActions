@@ -3,6 +3,17 @@ on:
   push:
     branches: [ main ]
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: checkout repo
+        uses: actions/checkout@v3
+      - name: use node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+      - run: npm install
+      - run: npm run build
   test:
     runs-on: ubuntu-latest
     steps:
@@ -20,9 +31,3 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: true
           verbose: true
-  build:
-    runs-on: ubuntu-latest #definir el sistema operativo
-        steps: #pasos para deefinir que es lo que va a hacer
-            - name: creando Build
-              uses: actions/checkout@v3
-            - run: echo "hola"
