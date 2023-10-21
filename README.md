@@ -1,3 +1,5 @@
+[![codecov](https://codecov.io/gh/Alex4191-usac/testIncludingCodeCov/graph/badge.svg?token=8I86JTX5C5)](https://codecov.io/gh/Alex4191-usac/testIncludingCodeCov)
+
 # Tarea5
 ## Instrucciones a realizar
 para fortalezer los conocimientos adquiridos en el tema de pruebas se le solicita a usted como estudiante realizar una serie de pruebas que complementen el almenos el 90% de las lineas cubiertas.
