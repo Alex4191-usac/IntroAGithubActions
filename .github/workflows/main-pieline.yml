@@ -20,3 +20,9 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: true
           verbose: true
+  build:
+    runs-on: ubuntu-latest #definir el sistema operativo
+        steps: #pasos para deefinir que es lo que va a hacer
+            - name: creando Build
+              uses: actions/checkout@v3
+            - run: echo "hola"
