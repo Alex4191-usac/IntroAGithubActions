@@ -1,0 +1,9 @@
+name: hello-world #nombrando el workflow
+on: push #On configura el evento donde se va a ejecutar el workflow
+jobs:
+    hello-world-job: #nombre del job
+        runs-on: ubuntu-latest #definir el sistema operativo
+        steps: #pasos para deefinir que es lo que va a hacer
+            - name: Check out repository code
+              uses: actions/checkout@v3
+            - run: echo "$(cat hello_world.txt)"
