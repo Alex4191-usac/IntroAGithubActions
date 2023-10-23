@@ -3,7 +3,7 @@ on:
   push:
     branches: [ main ]
 jobs:
-  build:
+  build: #stages que nombran para sus jobs
     runs-on: ubuntu-latest
     steps: 
       - name: checkout repo
@@ -13,9 +13,10 @@ jobs:
         with:
           node-version: '18.x'
       - run: npm install
-      - run: npm run build
+      - run: npm run build --if-present
+      - run: echo "se realizo BUILD ... ..."
   test:
-    needs: build
+    needs: build #dependencia de la etapa anterior para realizar la ejecucion de manera secuencial
     runs-on: ubuntu-latest
     steps:
       - name: checkout repo
@@ -27,8 +28,8 @@ jobs:
       - run: npm install
       - run: npm run test
       - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v3 #action para config y uso de codecov
         with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+          token: ${{ secrets.CODECOV_TOKEN }} #consumo de variable de nivel repositorio, dada por CodeCoverage
           fail_ci_if_error: true
           verbose: true
